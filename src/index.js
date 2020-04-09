@@ -50,7 +50,6 @@ export default function createSocketIoMiddleware(socket, criteria = [],
 
     return next => (action) => {
       if (evaluate(action, criteria)) {
-        console.tron.log('>>> Socket Middleware:', action);
         return execute(action, emitBound, next);
       }
       return next(action);
